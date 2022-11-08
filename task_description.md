@@ -30,7 +30,8 @@ However, your website **cannot** be related to your **previous assignments** or 
 	7.1. **Service section:-** show all the details of that Service with full description.
 	
 	7.2. **Review section:-** there will be a review section where a user can see others' reviews of that service. A review should contain a text, name, and image of the reviewer, rating(optional). The user can also **add his/her own review** for that service. But he needs to log in first. If the user is not logged in(use conditional rendering), show a text like: Please login to add a review. After clicking the login button/link, take him to the login page. Otherwise, show a form with a text area and a button to add his review(rating is optional). Please store the user info (email, etc.) and service info (service id, etc.) with each review to display the reviews correctly with the relevant service.
-
+	
+## processing
 8. Implement email/password-based authentication and at least one social login(google, Facebook, GitHub, etc.) authentication. Please skip the email verification part here, because it will create some inconvenience for the examiner. It is important for the examiner to be able to check your authentication without any hassle. If you want, you can add email verification after getting the assignment result.
 
 9. Once a user is logged in, he/she will see more options like My reviews, Add service, and the logout button in the navbar.
