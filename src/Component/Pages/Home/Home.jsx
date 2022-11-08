@@ -1,6 +1,7 @@
 import React from "react";
 import Carousel from "../Carousel/Carousel";
 import Product from "../Products/Product";
+import Testimonial from "../Testimonial/Testimonial";
 import Services from "./Services";
 
 const Home = () => {
@@ -14,6 +15,9 @@ const Home = () => {
 
       {/* service section */}
       <Services />
+
+      {/* testimonial section */}
+      <Testimonial />
     </div>
   );
 };

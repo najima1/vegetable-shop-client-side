@@ -1,0 +1,21 @@
+.bg_image {
+  background-image: url("../../image/Cms-7.jpg");
+  min-width: 100%;
+  min-height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.bg_image2 {
+  background-image: url("../../image/Cms-8.jpg");
+  min-width: 100%;
+  min-height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.img_wraper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 1rem;
+}

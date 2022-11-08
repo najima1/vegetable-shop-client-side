@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 
 const Header = () => {
   const [navbar, setNavbar_icon] = useState(true);
-  const { log_out_user } = useContext(AuthContext);
+  const { log_out_user, user } = useContext(AuthContext);
 
   ///sign out user
   const singOutUser = () => {
@@ -109,18 +109,21 @@ const Header = () => {
                 >
                   Add service
                 </Link>
-                <button
-                  onClick={() => singOutUser()}
-                  className="px-5 py-1 mx-1 mt-2 text-white transition-colors duration-300 transform rounded lg:mt-0 bg-[#FC427B] text-center"
-                >
-                  Log out
-                </button>
-                <Link
-                  to="/login"
-                  className="px-5 py-1 mx-1 mt-2 text-white transition-colors duration-300 transform rounded lg:mt-0 bg-[#182C61] text-center"
-                >
-                  Login
-                </Link>
+                {user?.uid || user ? (
+                  <button
+                    onClick={() => singOutUser()}
+                    className="px-5 py-1 mx-1 mt-2 text-white transition-colors duration-300 transform rounded lg:mt-0 bg-[#FC427B] text-center"
+                  >
+                    Log out
+                  </button>
+                ) : (
+                  <Link
+                    to="/login"
+                    className="px-5 py-1 mx-1 mt-2 text-white transition-colors duration-300 transform rounded lg:mt-0 bg-[#182C61] text-center"
+                  >
+                    Login
+                  </Link>
+                )}
               </div>
             </div>
           </div>
