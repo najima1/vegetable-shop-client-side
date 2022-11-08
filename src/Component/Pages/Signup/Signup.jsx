@@ -1,15 +1,65 @@
-import React from "react";
+import React, { useContext, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../AuthContext/ContextProvider";
+import {
+  emailValidation,
+  passwordValidation,
+  userNameValidation,
+} from "./signup_formValidation";
 
 const Signup = () => {
+  const [nameError, setNameError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [passError, setPassworError] = useState("");
+
+  //context provider
+  const { signUpUser } = useContext(AuthContext);
+
+  //sing up input collection
+  const userName = useRef();
+  const userEmail = useRef();
+  const userPassword = useRef();
+
+  //sign up handelar
+  const signUpHandelar = (e) => {
+    e.preventDefault();
+
+    const username = userName.current.value;
+    const email = userEmail.current.value;
+    const passwords = userPassword.current.value;
+
+    const validName = userNameValidation(username, setNameError);
+    const validEmail = emailValidation(email, setEmailError);
+    const validPass = passwordValidation(passwords, setPassworError);
+
+    if (validName) setNameError("");
+    if (validEmail) setEmailError("");
+    if (validPass) setPassworError("");
+
+    if (validName && validEmail && validPass) {
+      //create user with email , name, & password
+      signUpUser(validEmail, validPass)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log(user);
+        })
+        .catch((e) => {
+          console.log(e.message);
+        });
+    }
+  };
+
   return (
     <div>
       <div className="container py-16 mx-auto">
         <div className="w-full max-w-md p-8 space-y-3 rounded-xl mx-auto md:shadow-lg  dark:text-gray-900">
           <h1 className="text-2xl font-bold text-center">Sign up</h1>
-          <form className="space-y-6 ng-untouched ng-pristine ng-valid">
+          <form
+            onSubmit={(e) => signUpHandelar(e)}
+            className="space-y-6 ng-untouched ng-pristine ng-valid"
+          >
             <div className="space-y-1 text-sm">
-              <label for="username" className="block dark:text-gray-400">
+              <label htmlFor="username" className="block dark:text-gray-400">
                 Username
               </label>
               <input
@@ -17,11 +67,15 @@ const Signup = () => {
                 name="username"
                 id="username"
                 placeholder="Username"
+                ref={userName}
                 className="w-full px-4 py-3 rounded-md dark:border-gray-300 outline-none bg-gray-200  focus:dark:border-violet-400"
               />
+              <small className="block text-red-400">
+                {nameError && nameError}
+              </small>
             </div>
             <div className="space-y-1 text-sm">
-              <label for="email" className="block dark:text-gray-400">
+              <label htmlFor="email" className="block dark:text-gray-400">
                 Email
               </label>
               <input
@@ -29,11 +83,15 @@ const Signup = () => {
                 name="email"
                 id="email"
                 placeholder="email"
+                ref={userEmail}
                 className="w-full px-4 py-3 rounded-md dark:border-gray-300 outline-none bg-gray-200  focus:dark:border-violet-400"
               />
+              <small className="block text-red-400">
+                {emailError && emailError}
+              </small>
             </div>
             <div className="space-y-1 text-sm">
-              <label for="password" className="block dark:text-gray-400">
+              <label htmlFor="password" className="block dark:text-gray-400">
                 Password
               </label>
               <input
@@ -41,8 +99,12 @@ const Signup = () => {
                 name="password"
                 id="password"
                 placeholder="Password"
+                ref={userPassword}
                 className="w-full outline-none px-4 py-3 rounded-md dark:border-gray-700 bg-gray-200 focus:dark:border-violet-400"
               />
+              <small className="block text-red-400">
+                {passError && passError}
+              </small>
             </div>
             <button className="block w-full py-2 text-center rounded-sm dark:text-gray-900 bg-teal-400">
               Sign up
