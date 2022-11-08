@@ -1,6 +1,7 @@
 import React, { useContext, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../AuthContext/ContextProvider";
+import toast from "react-hot-toast";
 import {
   emailValidation,
   passwordValidation,
@@ -13,7 +14,7 @@ const Signup = () => {
   const [passError, setPassworError] = useState("");
 
   //context provider
-  const { signUpUser } = useContext(AuthContext);
+  const { signUpUser, updata_user } = useContext(AuthContext);
 
   //sing up input collection
   const userName = useRef();
@@ -37,16 +38,30 @@ const Signup = () => {
     if (validPass) setPassworError("");
 
     if (validName && validEmail && validPass) {
+      const validUser = { validName, validEmail, validPass };
+
       //create user with email , name, & password
       signUpUser(validEmail, validPass)
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(user);
+          toast.success("Sign up Successfully");
+
+          //updata user name
+          update_user_info(validName);
+
+          e.target.reset();
         })
         .catch((e) => {
-          console.log(e.message);
+          toast.error(e.message);
         });
     }
+  };
+
+  //update user information
+  const update_user_info = (name) => {
+    updata_user({ displayName: name })
+      .then(() => {})
+      .catch((e) => toast.error(e.message));
   };
 
   return (

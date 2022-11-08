@@ -1,5 +1,9 @@
 import React, { createContext } from "react";
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  updateProfile,
+} from "firebase/auth";
 import app from "../Firebase/Firebase";
 
 export const AuthContext = createContext();
@@ -11,8 +15,13 @@ const ContextProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
+  //updata user profile & name
+  const updata_user = (profile) => {
+    return updateProfile(auth.currentUser, profile);
+  };
+
   //provide all firebase method
-  const userInfo = { signUpUser };
+  const userInfo = { signUpUser, updata_user };
 
   return (
     <div>
