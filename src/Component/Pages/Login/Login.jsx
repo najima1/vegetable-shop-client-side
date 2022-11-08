@@ -1,15 +1,20 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState, useRef } from "react";
 import { emailValidation, passwordValidation } from "./formValidation.js";
 import { AuthContext } from "../../AuthContext/ContextProvider.jsx";
 import toast from "react-hot-toast";
 
+//login component function
+//=========================================//
 const Login = () => {
   const [emailError, setEmailError] = useState("");
   const [passError, setPassworError] = useState("");
   const emailRef = useRef();
   const passRef = useRef();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   //context api info
   const { user_login_firebase, login_with_google } = useContext(AuthContext);
@@ -31,9 +36,10 @@ const Login = () => {
       user_login_firebase(email, passwords)
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(user);
-          toast.success("Login Successfully");
 
+          navigate(from, { replace: true });
+
+          toast.success("Login Successfully");
           e.target.reset();
         })
         .catch((e) => toast.error(e.message));

@@ -1,5 +1,5 @@
 import React, { useContext, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthContext/ContextProvider";
 import toast from "react-hot-toast";
 import {
@@ -12,6 +12,9 @@ const Signup = () => {
   const [nameError, setNameError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passError, setPassworError] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   //context provider
   const { signUpUser, updata_user, login_with_google } =
@@ -39,16 +42,17 @@ const Signup = () => {
     if (validPass) setPassworError("");
 
     if (validName && validEmail && validPass) {
-      const validUser = { validName, validEmail, validPass };
+      const _validUser = { validName, validEmail, validPass };
 
       //create user with email , name, & password
       signUpUser(validEmail, validPass)
         .then((userCredential) => {
-          const user = userCredential.user;
+          const _user = userCredential.user;
           toast.success("Sign up Successfully");
 
           //updata user name
           update_user_info(validName);
+          navigate(from, { replace: true });
 
           e.target.reset();
         })

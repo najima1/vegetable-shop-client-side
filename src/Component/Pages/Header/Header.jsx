@@ -1,9 +1,21 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../AuthContext/ContextProvider";
 import logo from "../../image/logo.svg";
+import toast from "react-hot-toast";
 
 const Header = () => {
   const [navbar, setNavbar_icon] = useState(true);
+  const { log_out_user } = useContext(AuthContext);
+
+  ///sign out user
+  const singOutUser = () => {
+    log_out_user()
+      .then(() => {
+        toast.success("Logout successfull !");
+      })
+      .catch((e) => toast.error(e.message));
+  };
 
   return (
     <div>
@@ -86,17 +98,23 @@ const Header = () => {
                   Home
                 </Link>
                 <Link
-                  to="#"
+                  to="/reviews"
                   className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
                 >
-                  Browse Topics
+                  My reviews
                 </Link>
                 <Link
-                  to="/logout"
+                  to="/service"
+                  className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                >
+                  Add service
+                </Link>
+                <button
+                  onClick={() => singOutUser()}
                   className="px-5 py-1 mx-1 mt-2 text-white transition-colors duration-300 transform rounded lg:mt-0 bg-[#FC427B] text-center"
                 >
                   Log out
-                </Link>
+                </button>
                 <Link
                   to="/login"
                   className="px-5 py-1 mx-1 mt-2 text-white transition-colors duration-300 transform rounded lg:mt-0 bg-[#182C61] text-center"
