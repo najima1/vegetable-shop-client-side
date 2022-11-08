@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { useState, useRef } from "react";
 import { emailValidation, passwordValidation } from "./formValidation.js";
+import { AuthContext } from "../../AuthContext/ContextProvider.jsx";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const [emailError, setEmailError] = useState("");
   const [passError, setPassworError] = useState("");
   const emailRef = useRef();
   const passRef = useRef();
+
+  //context api info
+  const { user_login_firebase } = useContext(AuthContext);
 
   //loginFormHandler
   const loginFormHandler = (e) => {
@@ -23,8 +28,15 @@ const Login = () => {
 
     //valid email & password
     if (email && passwords) {
-      const user = { email, passwords };
-      console.log(user);
+      user_login_firebase(email, passwords)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log(user);
+          toast.success("Login Successfully");
+
+          e.target.reset();
+        })
+        .catch((e) => toast.error(e.message));
     }
   };
 

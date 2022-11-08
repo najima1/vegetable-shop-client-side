@@ -19,7 +19,7 @@ const Header = () => {
                   className="text-2xl font-bold text-gray-800 transition-colors duration-300 transform dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300"
                   to="#"
                 >
-                  <img src={logo} alt="" className="w-[40%]" />
+                  <img src={logo} alt="" className="w-[40%] text-white" />
                 </Link>
               </div>
 
