@@ -36,6 +36,8 @@ const router = createBrowserRouter([
             },
             {
                 path: '/reviews',
+                loader: () => fetch(`https://restaurant-server-ga3g2szoo-najima1.vercel.app/review`),
+
                 element: <Private_route><Reviews /></Private_route>
             },
             {
@@ -49,7 +51,7 @@ const router = createBrowserRouter([
             {
                 path: '/view/:id',
                 loader: ({ params }) => fetch(`https://restaurant-server-7fz2zsaca-najima1.vercel.app/product/${ params.id }`),
-                element: <View_details />
+                element: <Private_route><View_details /></Private_route>
             },
             {
                 path: '/addservice',

@@ -1,0 +1,5 @@
+.shadow_review{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+}
