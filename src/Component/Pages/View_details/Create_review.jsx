@@ -16,7 +16,7 @@ const Create_review = ({ image, productID }) => {
     //send user review client side to server side
     //the user review value if valid
     if (name && email && msg) {
-      const url = `https://restaurant-server-hbf8f93pa-najima1.vercel.app/product/review`;
+      const url = `https://restaurant-server-12115p2z7-najima1.vercel.app/product/review`;
 
       fetch(url, {
         method: "POST",
