@@ -7,6 +7,7 @@ import {
   passwordValidation,
   userNameValidation,
 } from "./signup_formValidation";
+import useTitle from "../../../UseHook/UseHook";
 
 const Signup = () => {
   const [nameError, setNameError] = useState("");
@@ -15,6 +16,7 @@ const Signup = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
+  useTitle('signup')
 
   //context provider
   const { signUpUser, updata_user, login_with_google } =

@@ -1,6 +1,9 @@
 import React from "react";
+import useTitle from "../../../UseHook/UseHook";
 
 const Blogs = () => {
+  useTitle("Blogs");
+  
   return (
     <div>
       <section className="bg-[#2C3A47] py-8 dark:text-gray-100">

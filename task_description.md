@@ -12,9 +12,10 @@ However, your website **cannot** be related to your **previous assignments** or 
 **Examples:** Online delivery service review, Online trainer review, travel/tourist service, Lawyer, Photographer (wedding photographer, sports photographer, journalism photographer, wild photographer, etc.), Immigration & VISA Consultant, Tax Lawyer, Accountant Service, Doctor/Dentist (single doctor. not a hospital or a diagnostic center), Journalist, YouTuber, Cloud kitchen, etc. If you have another idea for an individual service provider, please let us know before proceeding. (Please note that your website can not be related to a marketplace freelancer working on fiver, Upwork, etc. It can not be a portfolio website)
 
 ### Main Requirements
-
+## done
 1. The homepage will have a Navbar, a slider/banner/ a meaningful section. Under the navbar, display a list of services. There will be at least 6 services in the database, but here, you will `limit` the number to only 3 i.e. on the home page, you will show maximum of 3 services (this should be done in the backend). Also,  add a meaningful footer.
 
+## processing
 2. There will be a " **see all**" button/icon under the 3 services. When clicking the button/icon, take the user to the _/services_ route and show all the services on that page.
 
 ## done
@@ -57,14 +58,23 @@ However, your website **cannot** be related to your **previous assignments** or 
 1. Your Readme file for the client-side repo should have details about your project's features and functionalities in bullet points(at least five bullet points) and your live link. Adding a meaningful readme file for the server-side repo is optional.
 
 2. At least 15 meaningful GitHub commits for the client-side and 8 meaningful commits for the server-side repository.
+
+## done
 3. Your code should be clean and organized. Comments should be added where necessary
 
+## done
 1. The **title of the page** will change with the page you visit. It should not be the same for every route
+## done
 2. Add a meaningful favicon
+
 3. Add a **spinner** on the services page, and the login and register page. If data is loading, a spinner will be displayed.
+
 4. use the **Environment** Environment variable on both the client (firebase config) and server-side (mongodb credentials, Access token secret). Use .gitignore file on the server side.
+
 5. Implement the basic version of the **JWT**  **token** for email/password-based authentication. Upon login, you will create a jwt token and store it on the client side, and for the "My reviews" page, you will send the token and verify the user. Implementing 401 and 403 is optional. 
+
 6. In the "My reviews" page, clicking the **edit review** button/icon shows that review in a modal/in a new route and lets the user update it.
+
 7.  **Simple challenge** In the service details page, **sort the reviews in a descending order** by inserting time(you have to keep the inserting time when you add a review, you can do it with the Date object, or you can explore MongoDB documentation). You will have to implement this code on the server side.
 
 ### Optional

@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import { emailValidation, passwordValidation } from "./formValidation.js";
 import { AuthContext } from "../../AuthContext/ContextProvider.jsx";
 import toast from "react-hot-toast";
+import useTitle from "../../../UseHook/UseHook.js";
 
 //login component function
 //=========================================//
@@ -15,6 +16,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
+  useTitle('Login')
 
   //context api info
   const { user_login_firebase, login_with_google } = useContext(AuthContext);
