@@ -15,8 +15,8 @@ const Signup = () => {
   const [passError, setPassworError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
-  useTitle('signup')
+  const from = location.state?.from?.pathname || "/login";
+  useTitle("signup");
 
   //context provider
   const { signUpUser, updata_user, login_with_google } =
@@ -160,9 +160,9 @@ const Signup = () => {
           </div>
           <p className="text-xs text-center sm:px-6 dark:text-gray-400">
             Alrady have an account?
-            <span className="text-orange-400">
+            <strong className="text-orange-400 ">
               <Link to="/login">login</Link>
-            </span>
+            </strong>
             <a
               rel="noopener noreferrer"
               href="#"

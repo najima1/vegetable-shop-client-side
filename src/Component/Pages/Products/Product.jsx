@@ -17,10 +17,6 @@ const Product = () => {
     };
     axiosFn();
 
-    // fetch(url)
-    //   .then((e) => e.json())
-    //   .then((data) => setProduct(data.data))
-    //   .catch((e) => console.log(e.message));
   }, []);
 
   return (
@@ -37,8 +33,8 @@ const Product = () => {
         </div>
         {/* show all procuct after click the button */}
         <div>
-          <Link>
-            <button className="block text-center w-40 py-1 px-7 bg-[#17c0eb] mx-auto mt-10 text-white hover:bg-teal-400 transition-all rounded">
+          <Link to="/service">
+            <button className="block text-center w-40 py-2 px-7 bg-[#17c0eb] mx-auto mt-10 text-white hover:bg-teal-400 transition-all rounded">
               Show all
             </button>
           </Link>

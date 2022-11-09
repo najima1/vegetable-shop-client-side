@@ -3,7 +3,6 @@ import "./product.css";
 
 const Single_roduct = (items) => {
   const { img, name, price } = items.items;
-  console.log(img);
   return (
     <div className="shadows gap-2 p-8">
       <img src={img} alt="" />

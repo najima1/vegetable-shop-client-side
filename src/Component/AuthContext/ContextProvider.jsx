@@ -47,16 +47,18 @@ const ContextProvider = ({ children }) => {
 
   //logout user
   const log_out_user = () => {
-    return signOut(auth)
-  }
+    setLoading(true);
+    return signOut(auth);
+  };
 
   //get login current user
   useEffect(() => {
     onAuthStateChanged(auth, (currentUrs) => {
       setUser(currentUrs);
+
       setLoading(false);
     });
-  }, []);
+  }, [loading]);
 
   //provide all firebase method
   const userInfo = {

@@ -15,12 +15,13 @@ However, your website **cannot** be related to your **previous assignments** or 
 ## done
 1. The homepage will have a Navbar, a slider/banner/ a meaningful section. Under the navbar, display a list of services. There will be at least 6 services in the database, but here, you will `limit` the number to only 3 i.e. on the home page, you will show maximum of 3 services (this should be done in the backend). Also,  add a meaningful footer.
 
-## processing
+## done
 2. There will be a " **see all**" button/icon under the 3 services. When clicking the button/icon, take the user to the _/services_ route and show all the services on that page.
 
 ## done
 3. Add two extra sections on the home page. Make sure it is unique and relevant to your website.
 
+## processing
 4. The services of the home page and the services of the services page will have the name of the service, image, rating(optional), price, a short description(maximum 100 characters), and a view details button with each service card.
 
 5. When clicking on the image of the service, the picture will be viewed on full screen. Explore the package [react-photo-view](https://react-photo-view.vercel.app/en-US) for that.

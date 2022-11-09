@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../AuthContext/ContextProvider";
 import logo from "../../image/logo.svg";
@@ -115,7 +115,7 @@ const Header = () => {
                 >
                   Blogs
                 </Link>
-                {user?.uid || user ? (
+                {user?.uid ? (
                   <button
                     onClick={() => singOutUser()}
                     className="px-5 py-1 mx-1 mt-2 text-white transition-colors duration-300 transform rounded lg:mt-0 bg-[#FC427B] text-center"

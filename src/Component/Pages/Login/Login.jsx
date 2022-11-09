@@ -16,7 +16,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-  useTitle('Login')
+  useTitle("Login");
 
   //context api info
   const { user_login_firebase, login_with_google } = useContext(AuthContext);
@@ -128,9 +128,9 @@ const Login = () => {
         </div>
         <p className="text-xs text-center sm:px-6 dark:text-gray-400">
           Don't have an account?
-          <span className="text-red-400">
+          <strong className="text-red-400">
             <Link to="/signup">sign up</Link>
-          </span>
+          </strong>
           <a
             rel="noopener noreferrer"
             href="#"
