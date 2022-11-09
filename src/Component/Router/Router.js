@@ -6,6 +6,7 @@ import Login from "../Pages/Login/Login";
 import Reviews from "../Pages/Reviews/Reviews";
 import Service from "../Pages/Service/Service";
 import Signup from "../Pages/Signup/Signup";
+import View_details from "../Pages/View_details/View_details";
 import Private_route from "../PrivateRoute/Private_route";
 
 
@@ -42,7 +43,12 @@ const router = createBrowserRouter([
                 path: "/blogs",
                 element: <Blogs />
             },
-            
+            {
+                path: '/view/:id',
+                loader: ({ params }) => fetch(`https://restaurant-server-7fz2zsaca-najima1.vercel.app/product/${ params.id }`),
+                element: <View_details />
+            }
+
         ]
     }
 ])

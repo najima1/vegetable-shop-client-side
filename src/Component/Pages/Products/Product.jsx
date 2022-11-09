@@ -16,28 +16,29 @@ const Product = () => {
       setProduct(limit);
     };
     axiosFn();
-
   }, []);
 
   return (
-    <div className="container py-10 ">
-      <h1 className="md:text-2xl lg:text-3xl border-teal-400 border-b-[1px] text-center py-1 font-semibold">
-        All Fresh Products Daily!
-      </h1>
+    <div className="bg-[#ffcccc]">
+      <div className="container py-10 ">
+        <h1 className="md:text-2xl lg:text-3xl border-teal-400 border-b-[1px] text-center py-1 font-semibold">
+          All Fresh Products Daily!
+        </h1>
 
-      <div>
-        <div className="signle_product mt-8 rounded">
-          {product.map((items) => (
-            <Single_roduct key={items._id} items={items} />
-          ))}
-        </div>
-        {/* show all procuct after click the button */}
         <div>
-          <Link to="/service">
-            <button className="block text-center w-40 py-2 px-7 bg-[#17c0eb] mx-auto mt-10 text-white hover:bg-teal-400 transition-all rounded">
-              Show all
-            </button>
-          </Link>
+          <div className="signle_product mt-8 rounded">
+            {product.map((items) => (
+              <Single_roduct key={items._id} items={items} />
+            ))}
+          </div>
+          {/* show all procuct after click the button */}
+          <div>
+            <Link to="/service">
+              <button className="block text-center w-40 py-2 px-7 bg-[#17c0eb] mx-auto mt-10 text-white hover:bg-teal-400 transition-all rounded">
+                Show all
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
