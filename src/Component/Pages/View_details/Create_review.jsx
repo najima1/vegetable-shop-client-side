@@ -1,21 +1,31 @@
 import React, { useRef } from "react";
+import toast from "react-hot-toast";
 
-const Create_review = (image, id) => {
+const Create_review = ({ image, productID }) => {
   const userName = useRef();
   const userEmail = useRef();
   const message = useRef();
 
   //reviewHandlear
-  //===============================
   const reviewHandlear = (e) => {
     e.preventDefault();
     const name = userName.current.value;
     const email = userEmail.current.value;
     const msg = message.current.value;
+    const img_url = image;
 
+    //send user review client side to server side
+    //the user review value if valid
     if (name && email && msg) {
-      const review = { name, email, msg, image, id };
-      console.log(review);
+      const url = `https://restaurant-server-hbf8f93pa-najima1.vercel.app/product/review`;
+
+      fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, msg, img_url, productID }),
+      });
+
+      toast.success("review successfull");
     }
   };
 

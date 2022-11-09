@@ -9,7 +9,6 @@ import Create_review from "./Create_review";
 // view image component
 //=============================================
 const View_details = () => {
-  const [product, setProduct] = useState([]);
   const data = useLoaderData();
   const {
     name,
@@ -18,6 +17,7 @@ const View_details = () => {
     _id,
     details: { charge, woner, free_service, payment, product_id, size, desc },
   } = data.data;
+
 
   return (
     <div className="container my-24">
@@ -114,7 +114,7 @@ const View_details = () => {
       </div>
 
       {/* create review */}
-      <Create_review image={img} id={_id} />
+      <Create_review image={img} productID={_id} />
     </div>
   );
 };
