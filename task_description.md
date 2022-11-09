@@ -60,7 +60,7 @@ However, your website **cannot** be related to your **previous assignments** or 
 ### Bonus Requirements
 
 1. Your Readme file for the client-side repo should have details about your project's features and functionalities in bullet points(at least five bullet points) and your live link. Adding a meaningful readme file for the server-side repo is optional.
-
+## done
 2. At least 15 meaningful GitHub commits for the client-side and 8 meaningful commits for the server-side repository.
 
 ## done
@@ -72,7 +72,7 @@ However, your website **cannot** be related to your **previous assignments** or 
 2. Add a meaningful favicon
 
 3. Add a **spinner** on the services page, and the login and register page. If data is loading, a spinner will be displayed.
-
+## done
 4. use the **Environment** Environment variable on both the client (firebase config) and server-side (mongodb credentials, Access token secret). Use .gitignore file on the server side.
 
 5. Implement the basic version of the **JWT**  **token** for email/password-based authentication. Upon login, you will create a jwt token and store it on the client side, and for the "My reviews" page, you will send the token and verify the user. Implementing 401 and 403 is optional. 

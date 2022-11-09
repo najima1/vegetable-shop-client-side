@@ -1,5 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
+import Add_service from "../Pages/Add_service/Add_service";
 import Blogs from "../Pages/Blogs/Blogs";
+import Error_page from "../Pages/Error_page/Error_page";
 import Home from "../Pages/Home/Home";
 import Layout from "../Pages/Layout/Layout";
 import Login from "../Pages/Login/Login";
@@ -14,6 +16,7 @@ const router = createBrowserRouter([
     {
         path: '/',
         element: <Layout />,
+        errorElement: <Error_page />,
         children: [
             {
                 path: '/',
@@ -47,6 +50,12 @@ const router = createBrowserRouter([
                 path: '/view/:id',
                 loader: ({ params }) => fetch(`https://restaurant-server-7fz2zsaca-najima1.vercel.app/product/${ params.id }`),
                 element: <View_details />
+            },
+            {
+                path: '/addservice',
+                element: <Private_route>
+                    <Add_service />
+                </Private_route>
             }
 
         ]
