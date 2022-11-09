@@ -13,7 +13,6 @@ const Create_review = ({ image, productID }) => {
     const email = userEmail.current.value;
     const msg = message.current.value;
 
-    console.log(image, productID);
     //send user review client side to server side
     //the user review value if valid
     if (name && email && msg) {
@@ -25,6 +24,7 @@ const Create_review = ({ image, productID }) => {
         body: JSON.stringify({ name, email, msg, image, productID }),
       });
 
+      console.log(typeof productID);
       toast.success("review successfull");
     }
   };
