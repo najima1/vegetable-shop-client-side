@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Single_roduct from "./Single_roduct";
 import "./product.css";
 import { Link } from "react-router-dom";
+import logo from "../../image/icons8-iphone-spinner.gif";
 
 const Product = () => {
   const [product, setProduct] = useState([]);
@@ -26,10 +27,17 @@ const Product = () => {
         </h1>
 
         <div>
-          <div className="signle_product mt-8 rounded">
-            {product.map((items) => (
-              <Single_roduct key={items._id} items={items} />
-            ))}
+          {/* load data with spinner */}
+          <div>
+            {product.length <= 0 ? (
+              <img className="mx-auto" src={logo} alt="" />
+            ) : (
+              <div className="signle_product mt-8 rounded">
+                {product.map((items) => (
+                  <Single_roduct key={items._id} items={items} />
+                ))}
+              </div>
+            )}
           </div>
           {/* show all procuct after click the button */}
           <div>

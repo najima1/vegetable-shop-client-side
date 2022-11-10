@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import useTitle from "../../../UseHook/UseHook";
 import { AuthContext } from "../../AuthContext/ContextProvider";
 import "./review.css";
@@ -16,9 +16,9 @@ const Reviews = () => {
 
   //deleteReview
   const deleteReview = (id) => {
-    const url = `https://restaurant-server-isb2q58kz-najima1.vercel.app/product/deleted/${ id }`;
-    
-    const aggree=window.confirm('Are sure to delete review')
+    const url = `https://restaurant-server-isb2q58kz-najima1.vercel.app/product/deleted/${id}`;
+
+    const aggree = window.confirm("Are sure to delete review");
 
     if (aggree) {
       fetch(url, {
@@ -31,8 +31,11 @@ const Reviews = () => {
           toast.success("User review deleted successfull");
         })
         .catch((e) => toast.error(e.message));
-   }
+    }
   };
+
+  // update review
+  const updateReview = (id) => {};
 
   return (
     <div className="container my-24">
@@ -58,16 +61,26 @@ const Reviews = () => {
                     src={items.image}
                     alt=""
                   />
-                  <span>{items.msg}</span>
+                  <span className="block">{items.msg}</span>
                 </div>
                 <div className="flex justify-evenly my-4 md:my-0">
-                  <span>{items.name}</span>
-                  <button
-                    onClick={() => deleteReview(items._id)}
-                    className="bg-orange-500 text-white py-1 px-5 rounded"
-                  >
-                    delete
-                  </button>
+                  <span className="block md:inline-block">{items.name}</span>
+                  <div className="space-x-2">
+                    <button
+                      onClick={() => deleteReview(items._id)}
+                      className="bg-orange-600 text-white py-1 px-5 rounded block md:inline-block"
+                    >
+                      delete
+                    </button>
+                    <Link to={`/review/update/${items._id}`}>
+                      <button
+                        type="button"
+                        className="bg-teal-500 text-white py-1 px-5 rounded block md:inline-block"
+                      >
+                        update
+                      </button>
+                    </Link>
+                  </div>
                 </div>
               </li>
             ))}

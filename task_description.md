@@ -34,7 +34,7 @@ However, your website **cannot** be related to your **previous assignments** or 
 7. The service details route will have two sections.
 ## done
 	7.1. **Service section:-** show all the details of that Service with full description.
-	
+## done	
 	7.2. **Review section:-** there will be a review section where a user can see others' reviews of that service. A review should contain a text, name, and image of the reviewer, rating(optional). The user can also **add his/her own review** for that service. But he needs to log in first. If the user is not logged in(use conditional rendering), show a text like: Please login to add a review. After clicking the login button/link, take him to the login page. Otherwise, show a form with a text area and a button to add his review(rating is optional). Please store the user info (email, etc.) and service info (service id, etc.) with each review to display the reviews correctly with the relevant service.
 
 ## done
@@ -46,7 +46,7 @@ However, your website **cannot** be related to your **previous assignments** or 
 ## done 
 10. The "My reviews" page will be a private route and show only the reviews that the current user added either in a table or in cards with relevant information like - service name, review etc. There will be two buttons/icons - edit review(details in the bonus part) and **delete review** with each review. On clicking the delete button/icon, you have to delete the review, and it won't show up on that service page anymore. When the delete is successful, a toast/modal with a message will pop up to inform the user. If the user doesn't add any review, the page will show 'No reviews were added' at the middle of the page
 
-## processing
+## done
 11. On the "Add service" page(also a private route), you can **add a service** and that service will be shown on the home page. When the service is added successfully, a toast/modal with a message will pop up to inform the user.
 ## done
 12. No Fake data (data must be hosted on the database). The database could be MongoDB or any other NoSQL database.
@@ -73,12 +73,13 @@ However, your website **cannot** be related to your **previous assignments** or 
 ## done
 2. Add a meaningful favicon
 
+## done
 3. Add a **spinner** on the services page, and the login and register page. If data is loading, a spinner will be displayed.
 ## done
 4. use the **Environment** Environment variable on both the client (firebase config) and server-side (mongodb credentials, Access token secret). Use .gitignore file on the server side.
 
 5. Implement the basic version of the **JWT**  **token** for email/password-based authentication. Upon login, you will create a jwt token and store it on the client side, and for the "My reviews" page, you will send the token and verify the user. Implementing 401 and 403 is optional. 
-
+## done
 6. In the "My reviews" page, clicking the **edit review** button/icon shows that review in a modal/in a new route and lets the user update it.
 
 7.  **Simple challenge** In the service details page, **sort the reviews in a descending order** by inserting time(you have to keep the inserting time when you add a review, you can do it with the Date object, or you can explore MongoDB documentation). You will have to implement this code on the server side.

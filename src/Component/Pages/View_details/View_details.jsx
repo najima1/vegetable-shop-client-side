@@ -107,9 +107,15 @@ const View_details = () => {
             </strong>
           </div>
           <hr />
-          <strong className="text-2xl block mt-5"> {product_id}</strong>
-          <h1 className=" block">Size : {size ? size : ""}</h1>
-          <p className="py-2">{desc}</p>
+          <strong className="text-2xl block mt-5 uppercase "> {product_id}</strong>
+          <h1 className=" block">
+            Size : {size ? size : "Size is not available"}
+          </h1>
+          <p className="py-2">
+            {desc
+              ? desc
+              : "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo."}
+          </p>
         </div>
       </div>
 

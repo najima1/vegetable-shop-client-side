@@ -13,24 +13,34 @@ const Add_service = () => {
     e.preventDefault();
 
     const name = productName.current.value;
-    const product_id = product_ids.current.value;
+    const product_id = `SKU: ${product_ids.current.value}`;
     const img = imagLink.current.value;
-    const price = productPrice.current.value;
+    const price = `$${productPrice.current.value}`;
 
     if (name && product_id && img && price) {
-      const url = `https://restaurant-server-9zsa3r22h-najima1.vercel.app/products`;
+      const product = {
+        name,
+        price,
+        img,
+        details: {
+          product_id,
+        },
+      };
 
-      const items = { name, img, product_id, price };
-
+      const url = `https://restaurant-server-7v39t0e17-najima1.vercel.app/products`;
       fetch(url, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(items),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(product),
       })
-        .then((e) => e.json())
-        .then((data) => console.log(data))
-        .catch((e) => console.log(e.message));
+        .then((e) => {
+          toast.success("Product created successfull");
+        })
+        .catch((e) => toast.error(e.message));
     }
+    e.target.reset();
   };
 
   return (
@@ -75,7 +85,7 @@ const Add_service = () => {
                 Enter product ID
               </label>
               <input
-                type="productID"
+                type="text"
                 name="productID"
                 id="productID"
                 placeholder="product id"

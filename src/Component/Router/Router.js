@@ -8,6 +8,7 @@ import Login from "../Pages/Login/Login";
 import Reviews from "../Pages/Reviews/Reviews";
 import Service from "../Pages/Service/Service";
 import Signup from "../Pages/Signup/Signup";
+import Update_Review from "../Pages/Update_Review/Update_Review";
 import View_details from "../Pages/View_details/View_details";
 import Private_route from "../PrivateRoute/Private_route";
 
@@ -58,8 +59,13 @@ const router = createBrowserRouter([
                 element: <Private_route>
                     <Add_service />
                 </Private_route>
-            }
+            },
+            {
+                path: '/review/update/:id',
+                loader: ({ params }) => fetch(`https://restaurant-server-q2falf0t1-najima1.vercel.app/review/${ params.id }`),
+                element: <Update_Review />
 
+            }
         ]
     }
 ])
