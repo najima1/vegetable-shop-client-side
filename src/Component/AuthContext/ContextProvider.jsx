@@ -53,12 +53,14 @@ const ContextProvider = ({ children }) => {
 
   //get login current user
   useEffect(() => {
-    onAuthStateChanged(auth, (currentUrs) => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUrs) => {
       setUser(currentUrs);
 
       setLoading(false);
     });
-  }, [loading]);
+
+    return () => unsubscribe();
+  }, []);
 
   //provide all firebase method
   const userInfo = {

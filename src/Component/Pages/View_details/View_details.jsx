@@ -5,11 +5,13 @@ import defaultLogo from "../../image/05.jpg";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import Create_review from "./Create_review";
+import useTitle from "../../../UseHook/UseHook";
 
 // view image component
 //=============================================
 const View_details = () => {
   const data = useLoaderData();
+  useTitle("review details");
   const {
     name,
     img,
@@ -18,13 +20,11 @@ const View_details = () => {
     details: { charge, woner, free_service, payment, product_id, size, desc },
   } = data.data;
 
-
   return (
     <div className="container my-24">
       <div className="detailsProduct">
         {/* image */}
         <div className="">
-          {/* <img className="border shadow maxW-[80%]" src={img} alt="" /> */}
           <PhotoProvider>
             <PhotoView src={img}>
               {img ? (

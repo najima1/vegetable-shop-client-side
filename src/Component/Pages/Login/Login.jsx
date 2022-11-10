@@ -9,6 +9,7 @@ import useTitle from "../../../UseHook/UseHook.js";
 //login component function
 //=========================================//
 const Login = () => {
+    useTitle("Login");
   const [emailError, setEmailError] = useState("");
   const [passError, setPassworError] = useState("");
   const emailRef = useRef();
@@ -16,7 +17,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-  useTitle("Login");
+
 
   //context api info
   const { user_login_firebase, login_with_google } = useContext(AuthContext);

@@ -43,8 +43,10 @@ However, your website **cannot** be related to your **previous assignments** or 
 # done
 9. Once a user is logged in, he/she will see more options like My reviews, Add service, and the logout button in the navbar.
 
+## done 
 10. The "My reviews" page will be a private route and show only the reviews that the current user added either in a table or in cards with relevant information like - service name, review etc. There will be two buttons/icons - edit review(details in the bonus part) and **delete review** with each review. On clicking the delete button/icon, you have to delete the review, and it won't show up on that service page anymore. When the delete is successful, a toast/modal with a message will pop up to inform the user. If the user doesn't add any review, the page will show 'No reviews were added' at the middle of the page
 
+## processing
 11. On the "Add service" page(also a private route), you can **add a service** and that service will be shown on the home page. When the service is added successfully, a toast/modal with a message will pop up to inform the user.
 ## done
 12. No Fake data (data must be hosted on the database). The database could be MongoDB or any other NoSQL database.

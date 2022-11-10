@@ -10,13 +10,13 @@ import {
 import useTitle from "../../../UseHook/UseHook";
 
 const Signup = () => {
+  useTitle("signup");
   const [nameError, setNameError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passError, setPassworError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/login";
-  useTitle("signup");
 
   //context provider
   const { signUpUser, updata_user, login_with_google } =

@@ -1,7 +1,9 @@
 import React, { useRef } from "react";
 import toast from "react-hot-toast";
+import useTitle from "../../../UseHook/UseHook";
 
 const Create_review = ({ image, productID }) => {
+  useTitle('review')
   const userName = useRef();
   const userEmail = useRef();
   const message = useRef();
@@ -24,7 +26,6 @@ const Create_review = ({ image, productID }) => {
         body: JSON.stringify({ name, email, msg, image, productID }),
       });
 
-      console.log(typeof productID);
       toast.success("review successfull");
     }
   };
