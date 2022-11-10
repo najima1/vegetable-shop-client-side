@@ -1,22 +1,36 @@
 import React, { useRef } from "react";
+import toast from "react-hot-toast";
 import useTitle from "../../../UseHook/UseHook";
 
 const Add_service = () => {
   useTitle("review");
   const productName = useRef();
-  const productID = useRef();
+  const product_ids = useRef();
   const imagLink = useRef();
   const productPrice = useRef();
 
   const addServiceHandelar = (e) => {
     e.preventDefault();
 
-    const validName = productName.current.value;
-    const validID = productID.current.value;
-    const validImg = imagLink.current.value;
-    const validPrice = productPrice.current.value;
+    const name = productName.current.value;
+    const product_id = product_ids.current.value;
+    const img = imagLink.current.value;
+    const price = productPrice.current.value;
 
-    console.log(validName, validID, validImg, validPrice);
+    if (name && product_id && img && price) {
+      const url = `https://restaurant-server-9zsa3r22h-najima1.vercel.app/products`;
+
+      const items = { name, img, product_id, price };
+
+      fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(items),
+      })
+        .then((e) => e.json())
+        .then((data) => console.log(data))
+        .catch((e) => console.log(e.message));
+    }
   };
 
   return (
@@ -65,7 +79,7 @@ const Add_service = () => {
                 name="productID"
                 id="productID"
                 placeholder="product id"
-                ref={productID}
+                ref={product_ids}
                 required
                 className="w-full outline-none px-4 py-3 rounded-md dark:border-gray-700 bg-gray-200 focus:dark:border-violet-400"
               />
