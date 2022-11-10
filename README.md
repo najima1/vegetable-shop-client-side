@@ -68,3 +68,15 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## shop demo live link
+https://cute-khapse-9156fa.netlify.app/service
+## There is lot of product that you can purchase 
+## Uses technology 
+1 ) React
+2 ) Firebase
+3) tailwind
+4) MongoDB
+
+##User security-related service
+1) payment security 
