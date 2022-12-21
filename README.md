@@ -4,9 +4,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+In the project if you want to run install all dependency:
+
+### `yarn add`
+
 In the project directory, you can run:
 
-### `npm start`
+### `yarn start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
@@ -71,12 +75,37 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ## shop demo live link
 https://cute-khapse-9156fa.netlify.app/service
-## There is lot of product that you can purchase 
-## Uses technology 
-1 ) React
-2 ) Firebase
-3) tailwind
-4) MongoDB
 
-##User security-related service
-1) payment security 
+## Usese utility 
+
+1) React 
+2) Tailwind css
+3) React hooks form
+4) React query
+5) slick slider
+6) DesyUi
+
+## API call 
+1) axios, fetch, React query
+
+## Authentication / Hosting 
+1) Firebase
+
+## For server side 
+1) node js/ express
+
+## Server site hosting
+1) vercel
+
+## Features 
+
+1) There are several role like login & register.
+2) An user can see all product if he valid user.
+3) If user dosen't login he will redirect in login page.
+4) If user doesn't login he can't see all product.
+5) An user can give review any product.
+6) An user can login/logout.
+7) He can reset password.
+
+
+
