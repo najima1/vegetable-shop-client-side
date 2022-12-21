@@ -5,7 +5,7 @@ import logo from "../../image/logo.svg";
 import toast from "react-hot-toast";
 
 const Header = () => {
-  const [navbar, setNavbar_icon] = useState(true);
+  const [navbar, setNavbar_icon] = useState(false);
   const { log_out_user, user } = useContext(AuthContext);
 
   ///sign out user
@@ -19,10 +19,7 @@ const Header = () => {
 
   return (
     <div>
-      <nav
-        x-data="{ isOpen: false }"
-        className="relative bg-white shadow dark:bg-[#01BBB4]"
-      >
+      <nav className="relative bg-white shadow dark:bg-[#01BBB4]">
         <div className="container px-6 py-4 mx-auto">
           <div className="lg:flex lg:items-center lg:justify-between">
             <div className="flex items-center justify-between">
@@ -45,22 +42,6 @@ const Header = () => {
                   <div onClick={() => setNavbar_icon(!navbar)}>
                     {navbar ? (
                       <svg
-                        x-show="!isOpen"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="w-6 h-6 text-white"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M4 8h16M4 16h16"
-                        />
-                      </svg>
-                    ) : (
-                      <svg
                         x-show="isOpen"
                         xmlns="http://www.w3.org/2000/svg"
                         className="w-6 h-6 text-white"
@@ -75,6 +56,22 @@ const Header = () => {
                           d="M6 18L18 6M6 6l12 12"
                         />
                       </svg>
+                    ) : (
+                      <svg
+                        x-show="!isOpen"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-6 h-6 text-white"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M4 8h16M4 16h16"
+                        />
+                      </svg>
                     )}
                   </div>
                 </button>
@@ -85,8 +82,8 @@ const Header = () => {
             <div
               className={
                 navbar
-                  ? "translate-x-0 opacity-100 "
-                  : "opacity-0 -translate-x-full" +
+                  ? "block"
+                  : " " +
                     "absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-[#01BBB4] lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center hidden"
               }
             >
